@@ -1,0 +1,15 @@
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\bin\Debug\net6.0\EH.AttendanceSystem.Commons.deps.json
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\bin\Debug\net6.0\EH.AttendanceSystem.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\bin\Debug\net6.0\EH.AttendanceSystem.Commons.pdb
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\EH.AttendanceSystem.Commons.csproj.AssemblyReference.cache
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\EH.AttendanceSystem.Commons.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\EH.AttendanceSystem.Commons.AssemblyInfoInputs.cache
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\EH.AttendanceSystem.Commons.AssemblyInfo.cs
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\EH.AttendanceSystem.Commons.csproj.CoreCompileInputs.cache
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\EH.AttendanceSystem.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\refint\EH.AttendanceSystem.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\EH.AttendanceSystem.Commons.pdb
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\ref\EH.AttendanceSystem.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\bin\Debug\net6.0\EH.AttendanceSystem.Models.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\bin\Debug\net6.0\EH.AttendanceSystem.Models.pdb
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Commons\obj\Debug\net6.0\EH.AttendanceSystem.Commons.csproj.CopyComplete

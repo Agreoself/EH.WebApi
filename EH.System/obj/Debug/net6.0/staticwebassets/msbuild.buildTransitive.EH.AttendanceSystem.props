@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\EH.AttendanceSystem.props" />
+</Project>

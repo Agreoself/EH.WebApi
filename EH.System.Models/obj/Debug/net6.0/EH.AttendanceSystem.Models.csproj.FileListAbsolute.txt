@@ -1,0 +1,11 @@
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\bin\Debug\net6.0\EH.AttendanceSystem.Models.deps.json
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\bin\Debug\net6.0\EH.AttendanceSystem.Models.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\bin\Debug\net6.0\EH.AttendanceSystem.Models.pdb
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\obj\Debug\net6.0\EH.AttendanceSystem.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\obj\Debug\net6.0\EH.AttendanceSystem.Models.AssemblyInfoInputs.cache
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\obj\Debug\net6.0\EH.AttendanceSystem.Models.AssemblyInfo.cs
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\obj\Debug\net6.0\EH.AttendanceSystem.Models.csproj.CoreCompileInputs.cache
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\obj\Debug\net6.0\EH.AttendanceSystem.Models.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\obj\Debug\net6.0\refint\EH.AttendanceSystem.Models.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\obj\Debug\net6.0\EH.AttendanceSystem.Models.pdb
+C:\Work\VS_Project\EH.AttendanceSystem\EH.AttendanceSystem.Models\obj\Debug\net6.0\ref\EH.AttendanceSystem.Models.dll

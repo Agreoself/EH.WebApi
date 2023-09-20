@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "EH.AttendanceSystem.Models/1.0.0": {
+        "runtime": {
+          "EH.AttendanceSystem.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EH.AttendanceSystem.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
