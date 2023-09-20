@@ -53,6 +53,7 @@ namespace EH.Service.Implement
                     //        join rm in RoleMenus on ur.RoleID equals rm.RoleID
                     //        join m in menus on rm.MenuID equals m.ID.ToString() 
                     //        select m;
+
                     query=from m in menus 
                           select m;
                 }
