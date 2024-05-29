@@ -36,7 +36,7 @@ namespace EH.System.HostServices
                         var auditRes = formService.ApproveByEmail(auditReq);
                         if (auditRes)
                         {
-                            MoveInfo moveInfo = new MoveInfo()
+                            MoveInfo moveInfo = new()
                             {
                                 MessageID = auditReq.MessageId,
                                 Email = auditReq.MoveEmail,

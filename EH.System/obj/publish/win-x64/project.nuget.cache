@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5PJwkNFua9v6qNvvVfyUUR8i613ndaL3W+m83uYX77k/ZoLFoF/CR9YOBGBsTp6aAhBv3nBY5RcwiTOusvhKzA==",
+  "dgSpecHash": "kmqgfX9eW3HV8NVYwYlvDFA2Rbl48qk5vzB1wSyyNSmnl3ZssSejpnv9EgR1Ewc2OEWlwjobteb408iZllTgbw==",
   "success": true,
   "projectFilePath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\EH.System.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\paceyl\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\paceyl\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\paceyl\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\paceyl\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\microsoft.visualstudio.azure.containers.tools.targets.1.19.6.nupkg.sha512",
     "C:\\Users\\paceyl\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\paceyl\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
     "C:\\Users\\paceyl\\.nuget\\packages\\mimekit\\4.5.0\\mimekit.4.5.0.nupkg.sha512",

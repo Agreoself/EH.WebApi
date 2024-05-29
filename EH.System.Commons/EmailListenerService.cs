@@ -53,6 +53,7 @@ namespace EH.System.Commons
                             {
                              
                                 var subject = result["subject"].ToString();
+                                if (subject.Contains("Automatic reply:")) continue;
                                 var leaveId = subject.Split('-')[0].Split("=")[1];
                                 var auditResult = subject.Split('-')[1].Split("=")[1];
 
