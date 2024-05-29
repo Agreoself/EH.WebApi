@@ -22,6 +22,7 @@ namespace EH.System.Models.Dtos
         public string? Remark { get; set; }
 
         public int Sort { get; set; }
+        public bool KeepAlive { get; set; }
 
         public List<Menus> Children
         {

@@ -1,0 +1,16 @@
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Release\net6.0\EH.System.Commons.deps.json
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Release\net6.0\EH.System.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Release\net6.0\EH.System.Commons.pdb
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Release\net6.0\EH.System.Models.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Release\net6.0\EH.System.Models.pdb
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.System.Commons.csproj.AssemblyReference.cache
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.System.Commons.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.System.Commons.AssemblyInfoInputs.cache
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.System.Commons.AssemblyInfo.cs
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.System.Commons.csproj.CoreCompileInputs.cache
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.System.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\refint\EH.System.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.System.Commons.pdb
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\ref\EH.System.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.System.Commons.sourcelink.json
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Release\net6.0\EH.Syste.A157CAA3.Up2Date

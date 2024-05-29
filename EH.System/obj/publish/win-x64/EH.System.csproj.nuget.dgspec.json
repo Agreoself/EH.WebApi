@@ -1,0 +1,511 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\EH.System.csproj": {}
+  },
+  "projects": {
+    "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\EH.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\EH.Repository.csproj",
+        "projectName": "EH.Repository",
+        "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\EH.Repository.csproj",
+        "packagesPath": "C:\\Users\\paceyl\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\paceyl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj"
+              },
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.20, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\EH.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\EH.Service.csproj",
+        "projectName": "EH.Service",
+        "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\EH.Service.csproj",
+        "packagesPath": "C:\\Users\\paceyl\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\paceyl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\EH.Repository.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\EH.Repository.csproj"
+              },
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj"
+              },
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj",
+        "projectName": "EH.System.Commons",
+        "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj",
+        "packagesPath": "C:\\Users\\paceyl\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\paceyl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "DotNetCore.NPOI": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.20, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyModel": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.21.1, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.8.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.DirectoryServices": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.DirectoryServices.AccountManagement": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj",
+        "projectName": "EH.System.Models",
+        "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj",
+        "packagesPath": "C:\\Users\\paceyl\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\paceyl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\EH.System.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\EH.System.csproj",
+        "projectName": "EH.System",
+        "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\EH.System.csproj",
+        "packagesPath": "C:\\Users\\paceyl\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\obj\\publish\\win-x64\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\paceyl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\EH.Service.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\EH.Service.csproj"
+              },
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EH.System.Commons.csproj"
+              },
+              "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj": {
+                "projectPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Negotiate": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.20, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.20, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.20, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
+            "NLog.Database": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.2, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.8.0, )"
+            },
+            "Quartz.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.8.0, )"
+            },
+            "Quartz.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.8.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

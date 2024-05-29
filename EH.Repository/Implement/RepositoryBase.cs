@@ -244,7 +244,7 @@ namespace EH.Repository.Implement
 
         public IEnumerable<T> Where<TOrder>(Func<T, bool> @where, Func<T, TOrder> order, int pageIndex, int pageSize, out int count, bool isDesc = false)
         {
-            count = _dbSet.AsNoTracking().Count(@where);
+            count = _dbSet.Where(@where).Count();
             if (isDesc)
             {
                 return this._dbSet.Where(@where).OrderByDescending(order).Skip((pageIndex - 1) * pageSize).Take(pageSize);

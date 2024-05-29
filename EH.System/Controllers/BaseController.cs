@@ -19,11 +19,24 @@ namespace EH.System.Controllers
             this.baseService = baseService;
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("GetEntityById")]
+        public virtual JsonResultModel<T> GetEntityById(Guid id)
+        {
+            var entity = baseService.GetEntityById(id);
+            return new JsonResultModel<T>
+            {
+                Code = entity!=null?"000":"100",
+                Message = entity != null ? "success":"fail",
+                Result = entity,
+            };
+        }
 
         [HttpPost]
         [Authorize]
         [Route("GetPageList")]
-        public JsonResultModel<List<T>> GetPageList([FromBody] PageRequest<T> pageRequest)
+        public virtual JsonResultModel<List<T>> GetPageList([FromBody] PageRequest<T> pageRequest)
         {
             var list = baseService.GetPageList(pageRequest, out int total);
             return new JsonResultModel<List<T>>
@@ -39,13 +52,13 @@ namespace EH.System.Controllers
         [HttpPost]
         [Authorize]
         [Route("Add")]
-        public JsonResultModel<bool> Add(T entity)
+        public virtual JsonResultModel<T> Add(T entity, bool isSave=true)
         { 
-            var res = baseService.Insert(entity);
-            return new JsonResultModel<bool>
+            var res = baseService.Insert(entity, isSave);
+            return new JsonResultModel<T>
             {
-                Code = res ? "000" : "100",
-                Message = res ? "success" : "fail",
+                Code = res!=null ? "000" : "100",
+                Message = res != null ? "success" : "fail",
                 Result = res
             };
         }
@@ -53,7 +66,7 @@ namespace EH.System.Controllers
         [HttpPost]
         [Authorize]
         [Route("Delete")]
-        public JsonResultModel<bool> Delete(List<string> ids)
+        public virtual JsonResultModel<bool> Delete(List<string> ids)
         {  
             var res = baseService.DeleteRange(ids);
             return new JsonResultModel<bool>
@@ -67,7 +80,7 @@ namespace EH.System.Controllers
         [HttpPost]
         [Authorize]
         [Route("RealDelete")]
-        public JsonResultModel<bool> RealDelete(List<string> ids)
+        public virtual JsonResultModel<bool> RealDelete(List<string> ids)
         {  
             var res = baseService.RealDeleteRange(ids);
             return new JsonResultModel<bool>
@@ -81,7 +94,7 @@ namespace EH.System.Controllers
         [HttpPost]
         [Authorize]
         [Route("Update")]
-        public JsonResultModel<bool> Update(T entity)
+        public virtual JsonResultModel<bool> Update(T entity)
         {
             var userName = HttpContext.User.Identity.Name.Split('\\')[1];
               

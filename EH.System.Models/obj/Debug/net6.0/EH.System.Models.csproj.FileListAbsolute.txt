@@ -20,3 +20,4 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Debug\net6.0\EH.Syst
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Debug\net6.0\refint\EH.System.Models.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Debug\net6.0\EH.System.Models.pdb
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Debug\net6.0\ref\EH.System.Models.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Debug\net6.0\EH.System.Models.sourcelink.json

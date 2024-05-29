@@ -50,20 +50,20 @@ namespace EH.Service.Implement
             return jwtHelper.GetClaimValue<TT>(token, type);
         }
 
-        public bool Insert(T entity)
+        public virtual T Insert(T entity,bool isSave=true)
         {
             try
             {
-                var res = repositoryBase.Add(entity);
-                return true;
+                var res = repositoryBase.Add(entity, isSave);
+                return res;
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 
-        public bool Delete(T entity)
+        public virtual bool Delete(T entity)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace EH.Service.Implement
             }
         }
 
-        public bool DeleteRange(List<string> ids)
+        public virtual bool DeleteRange(List<string> ids)
         {
            
             try
@@ -106,7 +106,7 @@ namespace EH.Service.Implement
             }
         }
 
-        public bool RealDeleteRange(List<string> ids)
+        public virtual bool RealDeleteRange(List<string> ids)
         {
 
             try
@@ -128,7 +128,7 @@ namespace EH.Service.Implement
             }
         }
 
-        public bool Update(T entity)
+        public virtual bool Update(T entity)
         {
             try
             {
@@ -141,15 +141,15 @@ namespace EH.Service.Implement
             }
         }
 
-        public List<T> GetPageList(PageRequest<T> request, out int totalCount)
+        public virtual List<T> GetPageList(PageRequest<T> request, out int totalCount)
         {
             var whereCondision = request.GetWhere().Compile();
             var orderCondision = request.GetOrder().Compile();
 
-            return repositoryBase.Where(whereCondision, orderCondision, request.PageIndex, request.PageSize, out totalCount, isDesc: false).ToList().ToObject<List<T>>();
+            return repositoryBase.Where(whereCondision, orderCondision, request.PageIndex, request.PageSize, out totalCount, isDesc: request.isDesc).ToList().ToObject<List<T>>();
         }
 
-        public List<T> GetDeleteList(List<string> ids)
+        public virtual List<T> GetDeleteList(List<string> ids)
         {
             List<T> list = new List<T>();
             foreach (var id in ids)
@@ -159,6 +159,19 @@ namespace EH.Service.Implement
                     list.Add(entity);
             }
             return list;
+        }
+
+        public virtual T GetEntityById(Guid id)
+        {
+            try
+            {
+                var res = repositoryBase.GetById(id);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
     }

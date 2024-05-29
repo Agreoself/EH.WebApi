@@ -22,6 +22,8 @@ namespace EH.System.Models.Entities
         public string? Icon { get; set; }
         public int Sort { get; set; }
         public string? Remark { get; set; }
+        public bool KeepAlive { get; set; }
+
 
         [NotMapped]
         public List<Sys_Menus> Children

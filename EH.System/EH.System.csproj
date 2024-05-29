@@ -4,6 +4,8 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>e18db318-b789-4646-9d8f-4f62a18fbc2a</UserSecretsId>
+		<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,18 +15,25 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.20" /> 
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.20" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" /> 
 		<PackageReference Include="NLog" Version="5.2.2" />
 		<PackageReference Include="NLog.Database" Version="5.2.2" />
 		<PackageReference Include="NLog.Web.AspNetCore" Version="5.3.2" />
+		<PackageReference Include="Quartz" Version="3.8.0" />
+		<PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.8.0" />
+		<PackageReference Include="Quartz.Extensions.Hosting" Version="3.8.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\EH.Service\EH.Service.csproj" />
 		<ProjectReference Include="..\EH.System.Commons\EH.System.Commons.csproj" />
 		<ProjectReference Include="..\EH.System.Models\EH.System.Models.csproj" />
+		<Content Update="appsettings.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 		<Content Update="Config\NLog.config">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>

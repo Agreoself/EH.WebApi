@@ -7,22 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="C:\Users\paceyl\.nuget\packages\dotnetcore.npoi\1.2.3\contentFiles\any\netstandard2.0\NOTICE.TXT" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DotNetCore.NPOI" Version="1.2.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="MailKit" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.20" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.21.1" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog" Version="5.2.2" />
-    <PackageReference Include="System.DirectoryServices" Version="7.0.1" />
-    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="6.0.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+    <PackageReference Include="System.DirectoryServices" Version="8.0.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="8.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.7.0" />
 	 
   </ItemGroup>
 

@@ -8,10 +8,12 @@ namespace EH.System.Models.Dtos
 {
     public class UserInfo
     {
+        public Guid ID { get; set; }
         public string UserName { get; set; }
         public string FullName { get; set; }
         public int Gender { get; set; }
         public string Department { get; set; }
+        public string? Avatar { get; set; }
         public string Email { get; set; }
         public string JobTitle { get; set; }
         public string Report { get; set; }
@@ -23,7 +25,8 @@ namespace EH.System.Models.Dtos
         public DateTime? EHIStratWorkDate { get; set; }
 
         public string? CC { get; set; }
+        public string? Worktime { get; set; } = "8:30-17:30";
 
-        public List<string> RoleList { get; set; }
+        public Dictionary<string,string> RoleList { get; set; }
     }
 }

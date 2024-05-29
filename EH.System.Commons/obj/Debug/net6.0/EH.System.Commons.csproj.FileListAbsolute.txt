@@ -26,5 +26,6 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Debug\net6.0\EH.Sys
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Debug\net6.0\EH.System.Commons.pdb
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Debug\net6.0\EH.System.Models.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\bin\Debug\net6.0\EH.System.Models.pdb
-C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Debug\net6.0\EH.System.Commons.csproj.CopyComplete
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Debug\net6.0\ref\EH.System.Commons.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Debug\net6.0\EH.System.Commons.sourcelink.json
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Commons\obj\Debug\net6.0\EH.Syste.A157CAA3.Up2Date

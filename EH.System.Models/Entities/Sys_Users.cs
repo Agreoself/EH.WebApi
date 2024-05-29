@@ -14,11 +14,13 @@ namespace EH.System.Models.Entities
         public string FullName { get; set; }
         public string? Password { get; set; }
         public int Gender { get; set; }
+        public string? Avatar { get; set; }
         public string Department { get; set; }
         public string Email { get; set; }
         public string JobTitle { get; set; }
         public string Report { get; set; }
-        public string Phone { get; set; }
+        public string LastReport { get; set; }
+        public string? Phone { get; set; }
         public bool IsActive { get; set; }
         public bool IsAdmin { get; set; }
 
@@ -26,6 +28,10 @@ namespace EH.System.Models.Entities
         public DateTime? EhiStratWorkDate {  get; set; }
 
         public string? CC { get; set; }
+
+        public decimal? CCHours { get; set; }
+        public string? Worktime { get; set; }
+        public string? ChineseName { get; set; }
 
         public override bool Equals(object? obj)
         {

@@ -13,7 +13,7 @@ namespace EH.System.Commons
 {
     public class DbContextHelper
     {
-       
+
     }
 
     public class CreateByInterceptor : SaveChangesInterceptor
@@ -27,29 +27,44 @@ namespace EH.System.Commons
 
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
-            var entities = eventData.Context.ChangeTracker.Entries()
-                .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
+            var loghelper = new LogHelper();
 
-            foreach (var entityEntry in entities)
+            try
             {
-                var currentLoggedInUser = _httpContextAccessor.HttpContext.User.Identity.Name;
-                if (currentLoggedInUser != null)
+                var entities = eventData.Context.ChangeTracker.Entries()
+                    .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
+                foreach (var entityEntry in entities)
                 {
-                    currentLoggedInUser = currentLoggedInUser.Split('\\')[1];
-                }
-                var entity = (BaseEntity)entityEntry.Entity;
+                    string currentLoggedInUser = "ehi\\paceyl";
+                    if (_httpContextAccessor.HttpContext != null)
+                    {
+                        currentLoggedInUser = _httpContextAccessor.HttpContext.User?.Identity?.Name;
+                    }
+                    //loghelper.LogInfo("user" + currentLoggedInUser);
+                    if (currentLoggedInUser != null)
+                    {
+                        currentLoggedInUser = currentLoggedInUser.Split('\\')[1];
+                    }
+                    var entity = (BaseEntity)entityEntry.Entity;
 
-                if (entityEntry.State == EntityState.Added)
-                {
-                    entity.CreateDate = DateTime.Now;
-                    entity.CreateBy = currentLoggedInUser;
+                    if (entityEntry.State == EntityState.Added)
+                    {
+                        entity.CreateDate = DateTime.Now;
+                        entity.CreateBy = currentLoggedInUser ?? "";
+                    }
+
+                    entity.ModifyDate = DateTime.Now;
+                    entity.ModifyBy = currentLoggedInUser ?? "";
                 }
 
-                entity.ModifyDate = DateTime.Now;
-                entity.ModifyBy = currentLoggedInUser;
-            } 
-              
-            return base.SavingChanges(eventData, result);
+                return base.SavingChanges(eventData, result);
+            }
+            catch (Exception ex)
+            {
+                loghelper.LogError(ex.ToString());
+                throw;
+            }
+
         }
     }
 }

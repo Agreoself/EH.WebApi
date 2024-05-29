@@ -1,4 +1,5 @@
 ﻿using EH.System.Commons;
+using EH.System.Models.Common;
 using EH.System.Models.Dtos;
 using EH.System.Models.Entities;
 using System;
@@ -16,7 +17,7 @@ namespace EH.Service.Interface
         public bool ValidateToken(string token);
         public TT GetClaimValue<TT>(string token, string type);
 
-        public bool Insert(T entity);
+        public T Insert(T entity,bool isSave);
         public bool Update(T entity);
         public bool Delete(T entity);
         public bool DeleteRange(List<string> ids);
@@ -25,5 +26,6 @@ namespace EH.Service.Interface
         public List<T> GetPageList(PageRequest<T> request, out int totalCount);
 
         public List<T> GetDeleteList(List<string> ids);
+        public T GetEntityById(Guid id);
     }
 }
