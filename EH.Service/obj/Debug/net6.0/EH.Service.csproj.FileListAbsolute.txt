@@ -16,7 +16,5 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.Service\bin\Debug\net6.0\EH.System.Com
 C:\Work\VS_Project\EH.AttendanceSystem\EH.Service\bin\Debug\net6.0\EH.System.Models.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.Service\bin\Debug\net6.0\EH.System.Commons.pdb
 C:\Work\VS_Project\EH.AttendanceSystem\EH.Service\bin\Debug\net6.0\EH.System.Models.pdb
-C:\Work\VS_Project\EH.AttendanceSystem\EH.Service\obj\Debug\net6.0\Interop.ActiveDs.dll
-C:\Work\VS_Project\EH.AttendanceSystem\EH.Service\obj\Debug\net6.0\EH.Service.csproj.ResolveComReference.cache
 C:\Work\VS_Project\EH.AttendanceSystem\EH.Service\obj\Debug\net6.0\EH.Service.sourcelink.json
 C:\Work\VS_Project\EH.AttendanceSystem\EH.Service\obj\Debug\net6.0\EH.Service.csproj.Up2Date

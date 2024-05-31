@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.service\\implement\\ad\\aduserpwdnotifyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|solutionrelative:eh.service\\implement\\ad\\aduserpwdnotifyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.service\\implement\\ad\\aduseroperateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|solutionrelative:eh.service\\implement\\ad\\aduseroperateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.service\\eh.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|solutionrelative:eh.service\\eh.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5C591C4-7C59-49E6-A130-936920344A37}|EH.System\\EH.System.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.system\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D5C591C4-7C59-49E6-A130-936920344A37}|EH.System\\EH.System.csproj|solutionrelative:eh.system\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{06524516-C177-4D22-9B90-FB338B5B0B6C}|EH.System.Commons\\EH.System.Commons.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.system.commons\\emaillistenerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06524516-C177-4D22-9B90-FB338B5B0B6C}|EH.System.Commons\\EH.System.Commons.csproj|solutionrelative:eh.system.commons\\emaillistenerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,16 +35,8 @@
       "RelativeMoniker": "D:0:0:{D5C591C4-7C59-49E6-A130-936920344A37}|EH.System\\EH.System.csproj|solutionrelative:eh.system\\hostservices\\emaillistenerhostedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.service\\implement\\ad\\aduserpwdnotifyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|solutionrelative:eh.service\\implement\\ad\\aduserpwdnotifyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{06524516-C177-4D22-9B90-FB338B5B0B6C}|EH.System.Commons\\EH.System.Commons.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.system.commons\\leavebalancehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06524516-C177-4D22-9B90-FB338B5B0B6C}|EH.System.Commons\\EH.System.Commons.csproj|solutionrelative:eh.system.commons\\leavebalancehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5C591C4-7C59-49E6-A130-936920344A37}|EH.System\\EH.System.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.system\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{D5C591C4-7C59-49E6-A130-936920344A37}|EH.System\\EH.System.csproj|solutionrelative:eh.system\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.service\\implement\\attendance\\atdleaveformservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -107,10 +115,6 @@
       "RelativeMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|solutionrelative:eh.service\\interface\\ad\\iaduseroperateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.service\\implement\\ad\\aduseroperateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|solutionrelative:eh.service\\implement\\ad\\aduseroperateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|c:\\work\\vs_project\\eh.attendancesystem\\eh.service\\implement\\attendance\\atdleavebalanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{823BCE62-69CE-4A68-9063-65F3945D05D0}|EH.Service\\EH.Service.csproj|solutionrelative:eh.service\\implement\\attendance\\atdleavebalanceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -158,11 +162,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Program.cs",
               "RelativeDocumentMoniker": "EH.System\\Program.cs",
@@ -171,12 +175,11 @@
               "ViewState": "AQIAAAkAAAAAAAAAAAAAAIoAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-08-29T02:38:28.741Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\appsettings.json",
               "RelativeDocumentMoniker": "EH.System\\appsettings.json",
@@ -185,12 +188,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2023-08-29T02:47:42.713Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "IBaseService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Interface\\IBaseService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Interface\\IBaseService.cs",
@@ -203,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "BaseService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\BaseService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\BaseService.cs",
@@ -216,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "NLog.config",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Config\\NLog.config",
               "RelativeDocumentMoniker": "EH.System\\Config\\NLog.config",
@@ -229,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "BaseController.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Controllers\\BaseController.cs",
               "RelativeDocumentMoniker": "EH.System\\Controllers\\BaseController.cs",
@@ -238,12 +240,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-08-30T02:34:37.317Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "IRepositoryBase.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\Interface\\IRepositoryBase.cs",
               "RelativeDocumentMoniker": "EH.Repository\\Interface\\IRepositoryBase.cs",
@@ -256,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "MyAppContext.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\MyAppContext.cs",
               "RelativeDocumentMoniker": "EH.Repository\\MyAppContext.cs",
@@ -269,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "RepositoryBase.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Repository\\Implement\\RepositoryBase.cs",
               "RelativeDocumentMoniker": "EH.Repository\\Implement\\RepositoryBase.cs",
@@ -281,51 +282,64 @@
               "IsPinned": true
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EH.Service",
+              "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\EH.Service.csproj",
+              "RelativeDocumentMoniker": "EH.Service\\EH.Service.csproj",
+              "ToolTip": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\EH.Service.csproj",
+              "RelativeToolTip": "EH.Service\\EH.Service.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-31T01:58:23.133Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Dockerfile",
               "RelativeDocumentMoniker": "EH.System\\Dockerfile",
               "ToolTip": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Dockerfile",
               "RelativeToolTip": "EH.System\\Dockerfile",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-05-28T01:27:38.478Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "EmailListenerService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EmailListenerService.cs",
               "RelativeDocumentMoniker": "EH.System.Commons\\EmailListenerService.cs",
               "ToolTip": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EmailListenerService.cs",
               "RelativeToolTip": "EH.System.Commons\\EmailListenerService.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAA1wE4AAAAQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE4AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-14T08:27:57.688Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ADUserPwdNotifyService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\AD\\ADUserPwdNotifyService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\AD\\ADUserPwdNotifyService.cs",
               "ToolTip": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\AD\\ADUserPwdNotifyService.cs",
               "RelativeToolTip": "EH.Service\\Implement\\AD\\ADUserPwdNotifyService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYBAAAOAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAKIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-09T06:56:08.139Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "AtdLeaveProcessService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\Attendance\\AtdLeaveProcessService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\Attendance\\AtdLeaveProcessService.cs",
@@ -337,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "AtdLeaveFormService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\Attendance\\AtdLeaveFormService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\Attendance\\AtdLeaveFormService.cs",
@@ -345,12 +359,11 @@
               "RelativeToolTip": "EH.Service\\Implement\\Attendance\\AtdLeaveFormService.cs",
               "ViewState": "AQIAAHoAAAAAAAAAAAAgwFMCAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-20T06:52:46.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-10-20T06:52:46.82Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "LeaveBalanceHelper.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\LeaveBalanceHelper.cs",
               "RelativeDocumentMoniker": "EH.System.Commons\\LeaveBalanceHelper.cs",
@@ -358,12 +371,11 @@
               "RelativeToolTip": "EH.System.Commons\\LeaveBalanceHelper.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEBAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T05:36:49.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T05:36:49.847Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "EmailListenerHostedService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\HostServices\\EmailListenerHostedService.cs",
               "RelativeDocumentMoniker": "EH.System\\HostServices\\EmailListenerHostedService.cs",
@@ -371,12 +383,11 @@
               "RelativeToolTip": "EH.System\\HostServices\\EmailListenerHostedService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T16:23:19.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T16:23:19.216Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ADUserOperateController.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Controllers\\AD\\ADUserOperateController.cs",
               "RelativeDocumentMoniker": "EH.System\\Controllers\\AD\\ADUserOperateController.cs",
@@ -384,24 +395,24 @@
               "RelativeToolTip": "EH.System\\Controllers\\AD\\ADUserOperateController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T08:42:52.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-26T08:42:52.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 1,
               "Title": "ADUserOperateService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\AD\\ADUserOperateService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\AD\\ADUserOperateService.cs",
               "ToolTip": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\AD\\ADUserOperateService.cs",
               "RelativeToolTip": "EH.Service\\Implement\\AD\\ADUserOperateService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAA9AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T08:40:18.32Z"
+              "WhenOpened": "2024-03-26T08:40:18.32Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "IADUserOperateService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Interface\\AD\\IADUserOperateService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Interface\\AD\\IADUserOperateService.cs",
@@ -413,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "DbContextHelper.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\DbContextHelper.cs",
               "RelativeDocumentMoniker": "EH.System.Commons\\DbContextHelper.cs",
@@ -425,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "IAtdLeaveProcessService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Interface\\Attendance\\IAtdLeaveProcessService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Interface\\Attendance\\IAtdLeaveProcessService.cs",
@@ -437,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "SysUserService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\Sys\\SysUserService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\Sys\\SysUserService.cs",
@@ -449,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "ISysUserService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Interface\\Sys\\ISysUserService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Interface\\Sys\\ISysUserService.cs",
@@ -461,7 +472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "ADUserService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\Sys\\ADUserService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\Sys\\ADUserService.cs",
@@ -469,12 +480,11 @@
               "RelativeToolTip": "EH.Service\\Implement\\Sys\\ADUserService.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAmwDAAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-31T08:09:43.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-01-31T08:09:43.164Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "SysUsersController.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Controllers\\Sys\\SysUsersController.cs",
               "RelativeDocumentMoniker": "EH.System\\Controllers\\Sys\\SysUsersController.cs",
@@ -482,12 +492,11 @@
               "RelativeToolTip": "EH.System\\Controllers\\Sys\\SysUsersController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAHYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-24T03:14:21.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-01-24T03:14:21.908Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "IAtdLeaveBalanceService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Interface\\Attendance\\IAtdLeaveBalanceService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Interface\\Attendance\\IAtdLeaveBalanceService.cs",
@@ -499,7 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "AtdOtherRelatedService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\Attendance\\AtdOtherRelatedService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\Attendance\\AtdOtherRelatedService.cs",
@@ -511,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "IAtdOtherRelatedService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Interface\\Attendance\\IAtdOtherRelatedService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Interface\\Attendance\\IAtdOtherRelatedService.cs",
@@ -523,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "AtdLeaveBalanceController.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Controllers\\Attendance\\AtdLeaveBalanceController.cs",
               "RelativeDocumentMoniker": "EH.System\\Controllers\\Attendance\\AtdLeaveBalanceController.cs",
@@ -535,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "IAtdLeaveSettingService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Interface\\Attendance\\IAtdLeaveSettingService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Interface\\Attendance\\IAtdLeaveSettingService.cs",
@@ -547,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "AtdLeaveSettingService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\Attendance\\AtdLeaveSettingService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\Attendance\\AtdLeaveSettingService.cs",
@@ -559,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "IAtdLeaveFormService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Interface\\Attendance\\IAtdLeaveFormService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Interface\\Attendance\\IAtdLeaveFormService.cs",
@@ -571,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "ADHelper.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\ADHelper.cs",
               "RelativeDocumentMoniker": "EH.System.Commons\\ADHelper.cs",
@@ -579,12 +588,11 @@
               "RelativeToolTip": "EH.System.Commons\\ADHelper.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAYwBMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-30T06:06:11.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-30T06:06:11.345Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Commons\\EmailService.cs",
               "RelativeDocumentMoniker": "EH.System.Commons\\EmailService.cs",
@@ -596,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "AtdLeaveBalanceService.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.Service\\Implement\\Attendance\\AtdLeaveBalanceService.cs",
               "RelativeDocumentMoniker": "EH.Service\\Implement\\Attendance\\AtdLeaveBalanceService.cs",
@@ -608,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "AtdLeaveFormController.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System\\Controllers\\Attendance\\AtdLeaveFormController.cs",
               "RelativeDocumentMoniker": "EH.System\\Controllers\\Attendance\\AtdLeaveFormController.cs",
@@ -616,12 +624,11 @@
               "RelativeToolTip": "EH.System\\Controllers\\Attendance\\AtdLeaveFormController.cs",
               "ViewState": "AQIAADEAAAAAAAAAAAAYwFwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-20T07:02:04.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-10-20T07:02:04.078Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "PageRequest.cs",
               "DocumentMoniker": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\Dtos\\PageRequest.cs",
               "RelativeDocumentMoniker": "EH.System.Models\\Dtos\\PageRequest.cs",

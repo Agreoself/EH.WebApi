@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using EH.Repository.Interface.AD;
 using System.DirectoryServices.AccountManagement;
 using NLog;
-using ActiveDs;
+//using ActiveDs;
 using NPOI.XWPF.UserModel;
 using EH.System.Models.Dtos;
 
