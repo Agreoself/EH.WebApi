@@ -135,7 +135,7 @@ namespace EH.Service.Implement.Attendance
                 {
                     try
                     {
-                        var processEntitys = repository.Where(i => i.LeaveId == formEntity.LeaveId);
+                        var processEntitys = repository.Where(i => i.LeaveId == formEntity.LeaveId).OrderBy(i=>i.OrderNo);
                         var lastEntity = processEntitys.FirstOrDefault(i => i.ProcessState == "wait");
                         var orderNo = lastEntity == null ? processEntitys.Count() : lastEntity.OrderNo;
                         repository.DeleteRange(processEntitys.Where(i => i.OrderNo >= orderNo));
@@ -157,7 +157,8 @@ namespace EH.Service.Implement.Attendance
                         {
                             ProcessId = DateTime.Now.ToString("yyyyMMdd") + new Random().Next(1000),
                             LeaveId = formEntity.LeaveId,
-                            UserId = hr.UserName,
+                            UserId = user.Report,
+                            //UserId = hr.UserName,
                             Action = "audit",
                             Result = "",
                             AuditTime = null,
@@ -209,12 +210,12 @@ namespace EH.Service.Implement.Attendance
                 repository.AddRange(list);
 
                 var url = configuration.GetSection("EmailNotify:Url").Value;
-                var report = formEntity.IsCancel ? "HR" : reportUser.FullName;
+                //var report = formEntity.IsCancel ? "HR" : reportUser.FullName;
                 string toEmail = configuration.GetSection("EmailNotify:SysAdminEmail").Value;
 
                 string title = formEntity.IsCancel ? $"Request for cancellation of leave from {user.FullName}" : $"Time off Request from {user.FullName}";
 
-               string body = $"<span style='font-family:Arial;font-size:11pt;'>Dear </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{report}</span> ,<br/>";
+               string body = $"<span style='font-family:Arial;font-size:11pt;'>Dear </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{reportUser.FullName}</span> ,<br/>";
 
                 body += formEntity.IsCancel ? $"<span style='font-family:Arial;font-size:11pt;'>A cancellation leave request : </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{formEntity.LeaveId}</span><span style='font-family:Arial;font-size:11pt;'> requires your approval: </span><br/><br/><br/>": $"<span style='font-family:Arial;font-size:11pt;'>A leave request: </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{formEntity.LeaveId}</span><span style='font-family:Arial;font-size:11pt;'> requires your approval: </span><br/><br/><br/>";
 
@@ -243,7 +244,7 @@ namespace EH.Service.Implement.Attendance
                 leaveDetail += "</table></div><br/>";
                 body += leaveDetail;
 
-                body += "<div width='100%' ><span style='color: black;font-weight:bold;font-family:Arial;font-size:11pt;'>Action</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> ( Please click below links to </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Approve</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> or </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Reject</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> the leave request by replying with email directly )</span></div> <br/>";
+                body += "<div width='100%' ><span style='color: black;font-weight:bold;font-family:Arial;font-size:11pt;'>Action</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> (<span style='font-style:italic;font-family:Arial;font-size:10pt;color:red'>For approvers only.</span>  Please click below links to </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Approve</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> or </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Reject</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> the leave request by replying with email directly )</span></div> <br/>";
 
                 body += @$"<div width='100%'>
 <span><a href='mailto:HRVac@ehealth.com?subject=leaveId={formEntity.LeaveId}-result=agree&body=Comment:'>Approve</a></span>
@@ -256,28 +257,18 @@ namespace EH.Service.Implement.Attendance
 <span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> ( Log in HR vacation system to review request details )</span>
 </div> <br/>";
 
-                //body += formEntity.IsCancel ? "A cancellation leave request " : "A leave request " + $"{formEntity.LeaveId} requires your approval: <br />";
-
-                //body += $"{user.FullName}<br/>";
-                //body += $"{formEntity.LeaveType} Vacation {formEntity.TotalHours} hours {GetHour2Day(formEntity.TotalHours)}<br/>";
-                //body += $"From {formEntity.StartDate:yyyy-MM-dd HH:mm} To {formEntity.EndDate:yyyy-MM-dd HH:mm} <br/>";
-                //body += $"Reason : {formEntity.Reason ?? ""}<br/>";
-
-                //body += $"Please go to <a href=\"{url}/leaveApprove?leaveId={formEntity.LeaveId}\">this link</a> for approving.";
-
+                 
                 string fromEmail = user.Email;
                 var managerEntity = userRepository.Where(i => user.Report.Trim().Contains(i.UserName) || i.FullName.Contains(user.Report) || i.UserName == user.Report).FirstOrDefault();
                 //logHelper.LogInfo("managerEntity:" + managerEntity == null ? "null" : managerEntity.ToJson());
 
-                toEmail = formEntity.IsCancel ? hrEmail : managerEntity == null ? toEmail : managerEntity.Email;
+                //toEmail = formEntity.IsCancel ? hrEmail : managerEntity == null ? toEmail : managerEntity.Email;
+                toEmail = managerEntity == null ? toEmail : managerEntity.Email;
 
                 var needSend = Convert.ToBoolean(configuration.GetSection("EmailNotify:IsRequire").Value);
 
                 List<string> CC = new List<string>();
-
-
-
-
+                CC.Add(user.Email);
                 if (needSend)
                 {
                     if (!string.IsNullOrEmpty(user.CC))
@@ -334,10 +325,10 @@ namespace EH.Service.Implement.Attendance
                         }
                     }
                 }
-            }
-            logHelper.LogInfo("Need notify Unapproved User:" + userList.ToJson());
+            } 
             userList.ForEach(i =>
             {
+                logHelper.LogInfo($"{i.Users.FullName} have " + i.count+ " unapproved ");
                 var url = configuration.GetSection("EmailNotify:Url").Value;
                 string toEmail = i.Users.Email;
                 string fromEmail = configuration.GetSection("Quartz:UnapprovedNotify:NotifyMail").Value;

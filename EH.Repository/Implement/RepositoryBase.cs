@@ -26,7 +26,7 @@ namespace EH.Repository.Implement
             //this._connStr = "";//_dbContext.Database.GetDbConnection().ConnectionString;
         }
 
-        public void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.Unspecified)
+        public virtual void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.Unspecified)
         {
             if (this._dbContext.Database.CurrentTransaction == null)
             {
@@ -34,7 +34,7 @@ namespace EH.Repository.Implement
             }
         }
 
-        public void Commit()
+        public virtual void Commit()
         {
             var transaction = this._dbContext.Database.CurrentTransaction;
             if (transaction != null)
@@ -51,7 +51,7 @@ namespace EH.Repository.Implement
             }
         }
 
-        public void Rollback()
+        public virtual void Rollback()
         {
             if (this._dbContext.Database.CurrentTransaction != null)
             {
@@ -59,7 +59,7 @@ namespace EH.Repository.Implement
             }
         }
 
-        public int SaveChanges()
+        public virtual int SaveChanges()
         { 
             return this._dbContext.SaveChanges();
         }
@@ -67,17 +67,17 @@ namespace EH.Repository.Implement
     
 
 
-        public IQueryable<T> Entities
+        public virtual IQueryable<T> Entities
         {
             get { return this._dbSet.AsNoTracking(); }
         }
 
-        public IQueryable<T> TrackEntities
+        public virtual IQueryable<T> TrackEntities
         {
             get { return this._dbSet; }
         }
 
-        public T Add(T entity, bool isSave = true)
+        public virtual T Add(T entity, bool isSave = true)
         {
             this._dbSet.Add(entity);
             if (isSave)
@@ -87,7 +87,7 @@ namespace EH.Repository.Implement
             return entity;
         }
 
-        public void AddRange(IEnumerable<T> entitys, bool isSave = true)
+        public virtual void AddRange(IEnumerable<T> entitys, bool isSave = true)
         {
             this._dbSet.AddRange(entitys);
             if (isSave)
@@ -96,7 +96,7 @@ namespace EH.Repository.Implement
             }
         }
 
-        public void Delete(T entity, bool isSave = true)
+        public virtual void Delete(T entity, bool isSave = true)
         {
             this._dbSet.Remove(entity);
             if (isSave)
@@ -105,7 +105,7 @@ namespace EH.Repository.Implement
             }
         }
 
-        public void DeleteRange(IEnumerable<T> entitys, bool isSave = true)
+        public virtual void DeleteRange(IEnumerable<T> entitys, bool isSave = true)
         {
             this._dbSet.RemoveRange(entitys);
             if (isSave)
@@ -114,7 +114,7 @@ namespace EH.Repository.Implement
             }
         }
 
-        public void Delete(bool isSave = true, params T[] entitys)
+        public virtual void Delete(bool isSave = true, params T[] entitys)
         {
             this._dbSet.RemoveRange(entitys);
             if (isSave)
@@ -123,7 +123,7 @@ namespace EH.Repository.Implement
             }
         }
 
-        public void Delete(object id, bool isSave = true)
+        public virtual void Delete(object id, bool isSave = true)
         {
             this._dbSet.Remove(this._dbSet.Find(id));
             if (isSave)
@@ -132,7 +132,7 @@ namespace EH.Repository.Implement
             }
         }
 
-        public void Delete(Expression<Func<T, bool>> @where, bool isSave = true)
+        public virtual void Delete(Expression<Func<T, bool>> @where, bool isSave = true)
         {
             T[] entitys = this._dbSet.Where<T>(@where).ToArray();
             if (entitys.Length > 0)

@@ -10,3 +10,4 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Release\net6.0\refin
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Release\net6.0\EH.System.Models.pdb
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Release\net6.0\ref\EH.System.Models.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Release\net6.0\EH.System.Models.sourcelink.json
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System.Models\obj\Release\net6.0\EH.System.Models.csproj.AssemblyReference.cache

@@ -4,16 +4,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Xml;
 
 namespace EH.Repository.DataAccess
 {
     public class MyAppDbContext : DbContext
     {
         public MyAppDbContext(DbContextOptions opt) : base(opt)
+        {
+        }
+
+        public MyAppDbContext()
         {
         }
         #region System
@@ -29,23 +35,31 @@ namespace EH.Repository.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+
             Assembly assembly = typeof(BaseEntity).Assembly;
+            Type interfaceType = typeof(NoEntity);
+             
             // 获取所有继承自 EntityBase 的非 abstract 类
             List<Type> entityTypes = assembly.GetTypes()
-                .Where(t => t.IsSubclassOf(typeof(BaseEntity)) && !t.IsAbstract)
+                .Where(t => t.IsSubclassOf(typeof(BaseEntity)) && !t.IsAbstract&& !interfaceType.IsAssignableFrom(t))
                 .ToList();
+
+            //entityTypes=entityTypes.Where(!interfaceType.IsAssignableFrom(t))
+
+            //&& interfaceType.IsAssignableFrom(typeof(NoEntity))
 
             //// 注册实体
             //foreach (Type entityType in entityTypes)
             //{
             //    modelBuilder.Entity(entityType);
-                
+
             //}
 
             //var s = modelBuilder.Model.GetEntityTypes();
@@ -61,6 +75,11 @@ namespace EH.Repository.DataAccess
                 modelBuilder.Entity(entityType).HasQueryFilter(Expression.Lambda(body, parameter));
             }
 
+
+            //modelBuilder.Entity<Atd_LeaveForm>()
+            //.HasOne(e => e.Attachment)
+            //.WithMany()
+            //.HasForeignKey(e => e.);
 
 
             //var fixDecimalDatas = new List<Tuple<Type, Type, string>>();

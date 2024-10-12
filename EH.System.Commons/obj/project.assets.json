@@ -895,6 +895,9 @@
       "EH.System.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.1.1"
+        },
         "compile": {
           "bin/placeholder/EH.System.Models.dll": {}
         },

@@ -91,3 +91,8 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\Mail
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\MimeKit.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\System.Formats.Asn1.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\System.Security.Cryptography.Pkcs.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\Pipelines.Sockets.Unofficial.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\StackExchange.Redis.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\Castle.Core.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\bin\Release\net6.0\win-x64\Microsoft.EntityFrameworkCore.Proxies.dll

@@ -21,6 +21,7 @@ namespace EH.Service.Interface.Attendance
         JsonResultModel<Atd_LeaveForm> Apply(Atd_LeaveForm t);
 
         JsonResultModel<Atd_LeaveForm> UpdateFP(Atd_LeaveForm entity);
+        JsonResultModel<Atd_LeaveForm> UploadAttachment(Atd_LeaveForm entity);
         bool AuditForm(Atd_Audit t);
 
         //JsonResultModel<Atd_LeaveForm> AuditForm(Atd_Audit t);
@@ -37,5 +38,7 @@ namespace EH.Service.Interface.Attendance
 
         double CalculateLeaveHours(DateTime dtStart, DateTime dtEnd, string workTime, bool isContainHoliday,bool isNursing);
         bool ApproveByEmail(Atd_ApproveByEmail approveByEmail);
+
+        public void updateAttachment();
     }
 }

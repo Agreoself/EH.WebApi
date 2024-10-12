@@ -3,21 +3,14 @@ using EH.System.Models.Entities;
 using EH.Repository.Interface.Attendance;
 using EH.Service.Interface.Attendance;
 using EH.Repository.Interface.Sys;
-using System.Collections.Generic;
 using EH.System.Models.Dtos;
 using EH.System.Models.Common;
-using NPOI.POIFS.FileSystem;
-using System.Reflection.Metadata.Ecma335;
-using Microsoft.EntityFrameworkCore.Storage;
-using EH.Repository.Implement.Sys;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using static System.Net.WebRequestMethods;
-using EH.Repository.Implement;
+using System.Text.RegularExpressions;
 using NPOI.SS.Formula.Functions;
-using System.Numerics;
-using NPOI.Util;
-using NPOI.XWPF.UserModel;
+using System.Drawing;
+using Microsoft.EntityFrameworkCore;
+using System.Transactions;
 
 namespace EH.Service.Implement.Attendance
 {
@@ -50,19 +43,119 @@ namespace EH.Service.Implement.Attendance
             this.holidayService = holidayService;
             this.configuration = configuration;
         }
-
+        public void updateAttachment()
+        {
+            var allSuccess=true;
+            var entities = repository.Where(i => !string.IsNullOrEmpty(i.Attachment)).ToList();
+            entities.ForEach(entity =>
+            {
+                var res= entity.SetAttachment().Result;
+                if (res != "success")
+                    allSuccess = false;
+            });
+            if (allSuccess)
+                repository.UpdateRange(entities);
+            else
+                return;
+            
+        }
+        //public string leaveId = "";
         public List<Atd_FormWithState> QueryGetPageList(PageRequest<Atd_LeaveForm> request, out int totalCount)
+        {
+            try
+            {
+                List<Atd_FormWithState> result = new List<Atd_FormWithState>();
+                var defaultList = new List<Atd_LeaveForm>();
+                var userId = request.defaultWhere.Split(',')[0].Split('=')[1];
+                var isHR = Convert.ToBoolean(request.defaultWhere.Split(',')[1].Split('=')[1]);
+                var user = userRepository.Entities.FirstOrDefault(i => i.UserName == userId);
+                var userList = isHR
+                    ? userRepository.Entities.ToList()
+                    : userRepository.Entities
+                        .Where(i => (i.Report == user.UserName || user.FullName.Contains(i.Report)) || (i.LastReport == user.UserName || user.FullName.Contains(i.LastReport)))
+                        .ToList();
+
+                if (user.UserName == "nancyl" || user.UserName == "marsw")
+                {
+                    var csManager = new[] { "nancyl", "marsw", "Nancy Lin", "Mars Wan" };
+                    userList = userRepository.Entities
+                        .Where(i => csManager.Contains(i.Report) || csManager.Contains(i.LastReport))
+                        .Distinct()
+                        .ToList();
+                }
+
+                request.defaultWhere = null;
+                var whereCondition = request.GetWhere().Compile();
+                var orderCondition = request.GetOrder().Compile();
+
+                defaultList = repository.Entities.AsNoTracking()
+                    .Where(i => userList.Select(u => u.UserName).Contains(i.UserId) && i.CurrentState != -1)
+                    .ToList();
+
+                defaultList = defaultList.Where(whereCondition).ToList();
+                totalCount = defaultList.Count;
+                defaultList = request.isDesc
+                    ? defaultList.OrderByDescending(orderCondition).Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize).ToList()
+                    : defaultList.OrderBy(orderCondition).Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize).ToList();
+          
+                foreach (var i in defaultList)
+                {
+                    Atd_FormWithState entity = i.ToObject<Atd_FormWithState>();
+                    var formUser = userRepository.Entities.AsNoTracking().FirstOrDefault(i => i.UserName == entity.UserId);
+                    entity.FullName = formUser.FullName;
+                    entity.ChineseName = formUser.ChineseName;
+                    var leaveProcesses = processRepository.Entities.FirstOrDefault(p => p.LeaveId == i.LeaveId && p.IsLastNode);
+                    if (entity.CurrentState == 3)
+                    {
+                        leaveProcesses = processRepository.Entities.FirstOrDefault(p => p.LeaveId == i.LeaveId && p.ProcessState == "error");
+                    }
+                    //leaveId = i.LeaveId;
+                    entity.CurrentStep = leaveProcesses.ProcessState == "wait" ? "To" : "End";
+                    try
+                    {
+                        var currentProcess = leaveProcesses.ProcessState == "wait"
+                            ? processRepository.Where(p => p.LeaveId == i.LeaveId && p.ProcessState == "wait").OrderBy(p => p.OrderNo).FirstOrDefault()
+                            : leaveProcesses;
+
+                        entity.CurrentOwner = (userRepository.Entities.FirstOrDefault(u => u.UserName == currentProcess.UserId || u.FullName.Contains(currentProcess.UserId)))?.FullName;
+                    }
+                    catch (Exception ex)
+                    {
+                        logHelper.LogWarn($"{leaveProcesses.LeaveId} user not found {leaveProcesses.UserId}: {ex.Message}");
+                    }
+                    result.Add(entity);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logHelper.LogError("leave query  error:" + ex.ToString());
+                //logHelper.LogError("leave query  error:" + ex.ToString()+ " leaveid:" + leaveId);
+                totalCount = 0;
+                return null;
+            }
+          
+        }
+
+        public List<Atd_FormWithState> QueryGetPageListOld(PageRequest<Atd_LeaveForm> request, out int totalCount)
         {
             List<Atd_FormWithState> result = new List<Atd_FormWithState>();
             var defaultList = new List<Atd_LeaveForm>();
             var userId = request.defaultWhere.Split(',')[0].Split('=')[1];
             var isHR = Convert.ToBoolean(request.defaultWhere.Split(',')[1].Split('=')[1]);
             var user = userRepository.Entities.FirstOrDefault(i => i.UserName == userId);
-            var userList = userRepository.Entities.Where(i => (user.UserName == i.Report || user.FullName.Contains(i.Report)) || (user.UserName == i.LastReport || user.FullName.Contains(i.LastReport))).ToList().Distinct();
+            var userList = userRepository.Entities.Where(i => (i.Report == user.UserName || user.FullName.Contains(i.Report)) || (i.LastReport == user.UserName || user.FullName.Contains(i.LastReport))).ToList().Distinct();
 
             if (isHR)
             {
                 userList = userRepository.Entities.ToList();
+            }
+
+            if (user.UserName == "nancyl" || user.UserName == "marsw")
+            {
+                var csManager = new string[] { "nancyl", "marsw", "Nancy Lin", "Mars Wan" };
+                userList = userRepository.Entities.Where(i => (csManager.Contains(i.Report) || (csManager.Contains(i.LastReport)))).Distinct().ToList();
             }
 
             request.defaultWhere = null;
@@ -93,19 +186,27 @@ namespace EH.Service.Implement.Attendance
                 entity.FullName = formUser.FullName;
                 entity.ChineseName = formUser.ChineseName;
                 var leaveProcesses = processRepository.FirstOrDefault(p => p.LeaveId == i.LeaveId && p.IsLastNode);
-                if (leaveProcesses.ProcessState == "wait")
+                entity.CurrentStep = leaveProcesses.ProcessState == "wait" ? "To" : "End";
+                try
                 {
-                    entity.CurrentStep = "To";
-                    var currentProcess = processRepository.Where(p => p.LeaveId == i.LeaveId && p.ProcessState == "wait").OrderBy(i => i.OrderNo).FirstOrDefault();
-                    entity.CurrentOwner = userRepository.FirstOrDefault(i => i.UserName == currentProcess.UserId || i.FullName.Contains(currentProcess.UserId)).FullName;
+                    if (leaveProcesses.ProcessState == "wait")
+                    {
+                        var currentProcess = processRepository.Where(p => p.LeaveId == i.LeaveId && p.ProcessState == "wait").OrderBy(i => i.OrderNo).FirstOrDefault();
+                        entity.CurrentOwner = userRepository.FirstOrDefault(i => i.UserName == currentProcess.UserId || i.FullName.Contains(currentProcess.UserId)).FullName;
+                    }
+                    else
+                    {
+                        entity.CurrentOwner = userRepository.FirstOrDefault(i => i.UserName == leaveProcesses.UserId || i.FullName.Contains(leaveProcesses.UserId)).FullName;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    entity.CurrentStep = "End";
-                    entity.CurrentOwner = userRepository.FirstOrDefault(i => i.UserName == leaveProcesses.UserId || i.FullName.Contains(leaveProcesses.UserId)).FullName;
+                    logHelper.LogWarn(leaveProcesses.LeaveId + " user not found " + leaveProcesses.UserId);
                 }
                 result.Add(entity);
             });
+
+
             return result;
         }
 
@@ -119,16 +220,22 @@ namespace EH.Service.Implement.Attendance
                 if (i.CurrentState != -1)
                 {
                     var leaveProcesses = processRepository.FirstOrDefault(p => p.LeaveId == i.LeaveId && p.IsLastNode);
-                    if (leaveProcesses.ProcessState == "wait")
+                    entity.CurrentStep = leaveProcesses.ProcessState == "wait" ? "To" : "End";
+                    try
                     {
-                        entity.CurrentStep = "To";
-                        var currentProcess = processRepository.Where(p => p.LeaveId == i.LeaveId && p.ProcessState == "wait").OrderBy(i => i.OrderNo).FirstOrDefault();
-                        entity.CurrentOwner = userRepository.FirstOrDefault(i => i.UserName == currentProcess.UserId || i.FullName.Contains(currentProcess.UserId)).FullName;
+                        if (leaveProcesses.ProcessState == "wait")
+                        {
+                            var currentProcess = processRepository.Where(p => p.LeaveId == i.LeaveId && p.ProcessState == "wait").OrderBy(i => i.OrderNo).FirstOrDefault();
+                            entity.CurrentOwner = userRepository.FirstOrDefault(i => i.UserName == currentProcess.UserId || i.FullName.Contains(currentProcess.UserId)).FullName;
+                        }
+                        else
+                        {
+                            entity.CurrentOwner = userRepository.FirstOrDefault(i => i.UserName == leaveProcesses.UserId || i.FullName.Contains(leaveProcesses.UserId)).FullName;
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        entity.CurrentStep = "End";
-                        entity.CurrentOwner = userRepository.FirstOrDefault(i => i.UserName == leaveProcesses.UserId || i.FullName.Contains(leaveProcesses.UserId)).FullName;
+                        logHelper.LogWarn(leaveProcesses.LeaveId + " user not found " + leaveProcesses.UserId);
                     }
 
                 }
@@ -273,6 +380,12 @@ namespace EH.Service.Implement.Attendance
             var totalHour = Convert.ToDecimal(CalculateLeaveHours(entity.StartDate, entity.EndDate, workTime, isContainHoliday, isNursing));
 
             entity.TotalHours = totalHour;
+            var attachment = entity.SetAttachment().Result;
+            if (attachment != "success")
+            {
+                logHelper.LogError("uploadAttachment fail" + attachment);
+                return null;
+            }
             // Convert.ToDecimal(CalculateTotalHours(entity.StartDate, entity.EndDate));
 
             return base.Insert(entity);
@@ -296,12 +409,17 @@ namespace EH.Service.Implement.Attendance
 
             entity.TotalHours = totalHour;
             //Convert.ToDecimal(CalculateTotalHours(entity.StartDate, entity.EndDate));
-
+            var attachment = entity.SetAttachment().Result;
+            if (attachment != "success")
+            {
+                logHelper.LogError("uploadAttachment fail" + attachment);
+                return null;
+            }
             var result = GoProcess(entity);
             return result;
         }
 
-        public override bool Delete(Atd_LeaveForm entity)
+        public override bool Delete(Atd_LeaveForm entity, bool isSave = false)
         {
             if (entity.IsCancel)//如果是销假
             {
@@ -447,7 +565,7 @@ namespace EH.Service.Implement.Attendance
                 if (entity.LeaveType == "sick" && sickEntity != null)
                 {
 
-                    if (sickEntity.Available > entity.TotalHours)
+                    if (sickEntity.Available >= entity.TotalHours)
                     {
                         var res = InsertFormAndProcess(entity);
                         if (res != null)
@@ -490,8 +608,8 @@ namespace EH.Service.Implement.Attendance
             }
             else
             {
-                //resEntity =  entity.ToObject<Atd_LeaveForm>();
-                base.Update(entity);
+                resEntity = entity.ToObject<Atd_LeaveForm>(); // 更新现有实体
+                base.Update(resEntity); // 使用更新后的实体进行更新操作
             }
             try
             {
@@ -515,6 +633,27 @@ namespace EH.Service.Implement.Attendance
             }
         }
 
+        public JsonResultModel<Atd_LeaveForm> UploadAttachment(Atd_LeaveForm entity)
+        {
+            var attachment = entity.SetAttachment().Result;
+            if (attachment != "success")
+            {
+                logHelper.LogError("uploadAttachment fail" + attachment);
+                return new JsonResultModel<Atd_LeaveForm>()
+                {
+                    Code ="100",
+                    Result = null,
+                    Message = "fail"
+                };
+            }
+            var res = base.Update(entity);
+            return new JsonResultModel<Atd_LeaveForm>()
+            {
+                Code = res ? "000" : "100",
+                Result = entity,
+                Message = res ? "success" : "fail"
+            };
+        }
         public JsonResultModel<Atd_LeaveForm> UpdateFP(Atd_LeaveForm entity)
         {
             var settingEntity = settingRepository.Entities.FirstOrDefault(i => i.LeaveType == entity.LeaveType);
@@ -534,6 +673,18 @@ namespace EH.Service.Implement.Attendance
 
             entity.TotalHours = totalHour;
             //Convert.ToDecimal(CalculateTotalHours(entity.StartDate, entity.EndDate));
+
+            var attachment = entity.SetAttachment().Result;
+            if (attachment != "success")
+            {
+                logHelper.LogError("uploadAttachment fail" + attachment);
+                return new JsonResultModel<Atd_LeaveForm>()
+                {
+                    Code = "100",
+                    Result = null,
+                    Message = "fail"
+                };
+            }
 
             if (entity.CurrentState == 0)
             {
@@ -593,15 +744,27 @@ namespace EH.Service.Implement.Attendance
         {
             try
             {
-                logHelper.LogInfo(approveByEmail.FromEmail+ "Approve By Email");
+                logHelper.LogInfo(approveByEmail.FromEmail + "Approve By Email");
                 var user = userRepository.FirstOrDefault(i => i.Email == approveByEmail.FromEmail);
-                if (user == null)
+                string pattern = "[a-zA-Z]+";
+                var match = Regex.Match(approveByEmail.LeaveId, pattern);
+                var leaveUser = userRepository.FirstOrDefault(i => i.UserName == match.Value || i.FullName.Contains(match.Value));
+
+                if (user == null || leaveUser == null)
                 {
                     logHelper.LogError("ApproveByEmail User NotFound :" + approveByEmail.FromEmail);
                     return false;
                 }
+                if (!string.IsNullOrEmpty(leaveUser.CC))
+                {
+                    if (leaveUser.CC.ToLower() == approveByEmail.FromEmail.ToLower())
+                    {
+                        return true;
+                    }
+                }
+                if (leaveUser.Email.ToLower() == approveByEmail.FromEmail.ToLower()) return true;
 
-                PageRequest<Atd_LeaveForm> pageRequest = new PageRequest<Atd_LeaveForm>
+                PageRequest<Atd_LeaveForm> pageRequest = new()
                 {
                     defaultWhere = $"userId={user.UserName}",
                     order = "createDate",
@@ -609,13 +772,15 @@ namespace EH.Service.Implement.Attendance
                     PageSize = 10,
                     where = $"leaveId={approveByEmail.LeaveId}"
                 };
+                var form = repository.FirstOrDefault(i => i.LeaveId == approveByEmail.LeaveId);
                 var waitAuditRes = GetWaitAuditForm(pageRequest, out int total).FirstOrDefault();
                 if (waitAuditRes == null)
                 {
+                    if (form.IsCancel) return true;
                     var entity = processRepository.FirstOrDefault(i => i.LeaveId == approveByEmail.LeaveId && (i.UserId == user.UserName || user.FullName.Contains(i.UserId)));
                     if (entity != null)
                     {
-                        return entity.ProcessState=="success"||entity.ProcessState=="error";
+                        return entity.ProcessState == "success" || entity.ProcessState == "error";
                     }
                     logHelper.LogError("ApproveByEmail Form NotFound :" + approveByEmail.LeaveId);
                     return false;
@@ -779,11 +944,8 @@ namespace EH.Service.Implement.Attendance
             string title = "";
             string body = "";
 
-            //string leaveDetail = $"{user.FullName}<br/>";
-            //leaveDetail += $"{fEntity.LeaveType} Vacation {fEntity.TotalHours} hours {GetHour2Day(fEntity.TotalHours)}<br/>";
-            //leaveDetail += $"From {fEntity.StartDate:yyyy-MM-dd HH:mm} To {fEntity.EndDate:yyyy-MM-dd HH:mm} <br/>";
-            //leaveDetail += $"Reason : {fEntity.Reason ?? ""}<br/>";
-            string leaveDetail = @"<div><table width='100%' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse;'>"; 
+            #region leaveDetail
+            string leaveDetail = @"<div><table width='100%' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse;'>";
             leaveDetail += @"<tr>
             <th colspan='1' style='font-weight:bold;text-align: left;font-family:Arial;font-size:11pt;'>Employee</th>
             <th colspan='1' style='font-weight:bold;text-align: left;font-family:Arial;font-size:11pt;'>Request</th>
@@ -804,31 +966,35 @@ namespace EH.Service.Implement.Attendance
             leaveDetail += @" <tr>
             <th colspan='4' style='font-weight:bold;text-align: left;font-family:Arial;font-size:11pt;'>Reason</th> 
             </tr>";
-            leaveDetail += $"<tr><td colspan='4' style='text-align: left;color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.Reason??""}</td></tr>"; 
+            leaveDetail += $"<tr><td colspan='4' style='text-align: left;color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.Reason ?? ""}</td></tr>";
             leaveDetail += "</table></div><br/>";
+
+            #endregion
+
+            #region action
+            var action = "<div width='100%' ><span style='color: black;font-weight:bold;font-family:Arial;font-size:11pt;'>Action</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'>(<span style='font-style:italic;font-family:Arial;font-size:10pt;color:red'>For approvers only.</span> Please click below links to </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Approve</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> or </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Reject</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> the leave request by replying with email directly )</span></div> <br/>";
+
+            action += @$"<div width='100%'><span>
+<a href='mailto:HRVac@ehealth.com?subject=leaveId={fEntity.LeaveId}-result=agree&body=Comment:'>Approve</a></span>&nbsp | &nbsp<span>
+<a href='mailto:HRVac@ehealth.com?subject=leaveId={fEntity.LeaveId}-result=deny&body=Comment:'>Reject</a></span></div> <br/>";
+            #endregion
 
 
             if (fEntity.CurrentState == 0)
             {
-                title = $"Time off Request from {user.FullName}"; 
+                title = $"Time off Request from {user.FullName}";
 
                 body = $"<span style='font-family:Arial;font-size:11pt;'>Dear </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{auditUser.FullName}</span> ,<br/>";
                 body += $"<span style='font-family:Arial;font-size:11pt;'>A leave request: </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.LeaveId}</span><span style='font-family:Arial;font-size:11pt;'> requires your approval: </span><br/><br/><br/>";
 
                 body += leaveDetail;
 
-                body += "<div width='100%' ><span style='color: black;font-weight:bold;font-family:Arial;font-size:11pt;'>Action</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> ( Please click below links to </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Approve</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> or </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Reject</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> the leave request by replying with email directly )</span></div> <br/>";
-
-                body += @$"<div width='100%'>
-<span><a href='mailto:HRVac@ehealth.com?subject=leaveId={fEntity.LeaveId}-result=agree&body=Comment:'>Approve</a></span>
-&nbsp | &nbsp
-<span><a href='mailto:HRVac@ehealth.com?subject=leaveId={fEntity.LeaveId}-result=deny&body=Comment:'>Reject</a></span>
-</div> <br/>";
+                body += action;
 
                 body += @$"<div width='100%'>
 <span><a href='{url}/leaveApprove?leaveId={fEntity.LeaveId}'>View details</a></span>
 <span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> ( Log in HR vacation system to review request details )</span>
-</div> <br/>"; 
+</div> <br/>";
 
                 toEmail = auditUser.Email;
             }
@@ -841,13 +1007,7 @@ namespace EH.Service.Implement.Attendance
 
                 body += leaveDetail;
 
-                body += "<div width='100%' ><span style='color: black;font-weight:bold;font-family:Arial;font-size:11pt;'>Action</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> ( Please click below links to </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Approve</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> or </span><span style='color:#808080;font-weight:bold;font-style:italic;font-family:Arial;font-size:10pt;'>Reject</span><span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> the leave request by replying with email directly )</span></div> <br/>";
-
-                body += @$"<div width='100%'>
-<span><a href='mailto:HRVac@ehealth.com?subject=leaveId={fEntity.LeaveId}-result=agree&body=Comment:'>Approve</a></span>
-&nbsp | &nbsp
-<span><a href='mailto:HRVac@ehealth.com?subject=leaveId={fEntity.LeaveId}-result=deny&body=Comment:'>Reject</a></span>
-</div> <br/>";
+                body += action;
 
                 body += @$"<div width='100%'>
 <span><a href='{url}/leaveApprove?leaveId={fEntity.LeaveId}'>View details</a></span>
@@ -857,10 +1017,10 @@ namespace EH.Service.Implement.Attendance
             }
             if (fEntity.CurrentState == 2)
             {
-                title = "Your leave request has been approved";
+                title = fEntity.IsCancel ? "Your's leave request has been cancelled" : "Your's leave request has been approved";
                 body = $"<span style='font-family:Arial;font-size:11pt;'>Dear </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{user.FullName}</span> ,<br/>";
-                body += $"<span style='font-family:Arial;font-size:11pt;'>Your leave request: </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.LeaveId}</span><span style='font-family:Arial;font-size:11pt;'> has been approved by  </span><br/><br/><br/>";
-                body += $"Your leave request: {fEntity.LeaveId} has been approved by <span style='color: #000099;font-family:Arial;font-size:11pt;'>{auditUser.FullName}</span> <br/>";
+
+                body += fEntity.IsCancel ? $"<span style='color: #000099;font-family:Arial;font-size:11pt;'> {auditUser.FullName}</span><span style='font-family:Arial;font-size:11pt;'> approved your's cancellation of leave request:</span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.LeaveId}</span><br/><br/><br/>" : $"<span style='font-family:Arial;font-size:11pt;'>Your leave request: </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.LeaveId}</span><span style='font-family:Arial;font-size:11pt;'> has been approved by </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{auditUser.FullName}</span> <br/><br/><br/>";
 
                 body += leaveDetail;
 
@@ -868,16 +1028,17 @@ namespace EH.Service.Implement.Attendance
 <span><a href=""{url}/myLeave?leaveId={fEntity.LeaveId}"">View details</a></span>
 <span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> ( Log in HR vacation system to review request details )</span>
 </div> <br/>";
-                 
+
             }
             if (fEntity.CurrentState == 3)
             {
-                title = "Your leave request has been rejected";
+                title = fEntity.IsCancel ? "Your's cancellation of leave request has been rejected" : "Your's leave request has been rejected";
                 body = $"<span style='font-family:Arial;font-size:11pt;'>Dear </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{user.FullName}</span> ,<br/>";
-                body += $"<span style='font-family:Arial;font-size:11pt;'>Sorry, your leave request: </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.LeaveId}</span><span style='font-family:Arial;font-size:11pt;'> has been rejected.<br/>Please reapply  </span><br/><br/><br/>";
-                //body += "<span style='font-family:Arial;font-size:11pt;'>Please reapply</span>";
+
+                body += fEntity.IsCancel ? $"<span style='font-family:Arial;font-size:11pt;'> Sorry,</span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{auditUser.FullName}</span><span> rejected your's cancellation of leave request:</span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.LeaveId}</span><br/><br/><br/>" :
+                $"<span style='font-family:Arial;font-size:11pt;'>Sorry, your leave request: </span><span style='color: #000099;font-family:Arial;font-size:11pt;'>{fEntity.LeaveId}</span><span style='font-family:Arial;font-size:11pt;'> has been rejected.<br/>Please reapply  </span><br/><br/><br/>";
                 body += leaveDetail;
-             
+
                 body += @$"<div width='100%'>
 <span><a href=""{url}/myLeave?leaveId={fEntity.LeaveId}"">View details</a></span>
 <span style='font-style:italic;font-family:Arial;font-size:10pt;color:#808080'> ( Log in HR vacation system to review request details )</span>
@@ -888,7 +1049,8 @@ namespace EH.Service.Implement.Attendance
 
             if (needSend)
             {
-                List<string> CC = new List<string>();
+                List<string> CC = new();
+                //CC.Add(user.Email);
                 if (!string.IsNullOrEmpty(user.CC))
                 {
                     if (user.CCHours != null)
@@ -901,7 +1063,7 @@ namespace EH.Service.Implement.Attendance
                 }
                 if (toEmail == nextUser?.Email || toEmail == auditUser?.Email)
                 {
-                    
+
                 }
                 else
                 {
@@ -920,9 +1082,58 @@ namespace EH.Service.Implement.Attendance
             return result;
         }
 
+
         public void OperateQuota(Atd_LeaveForm fEntity, IQueryable<Atd_LeaveBalance> balanceEntity, bool isAgree, bool isApply = false)
         {
-            var bEntity = balanceEntity.FirstOrDefault(i => i.LeaveType == fEntity.LeaveType);
+            var bEntity = balanceEntity.FirstOrDefault(i => i.LeaveType == fEntity.LeaveType && i.Year == DateTime.Now.Year);
+
+            if (bEntity == null) return; // 如果没有找到，直接返回
+
+            decimal totalHours = Convert.ToDecimal(fEntity.TotalHours);
+
+            if (fEntity.IsCancel)
+            {
+                bEntity.Available += totalHours;
+
+                if (fEntity.CancelState == 2)
+                {
+                    bEntity.Used -= totalHours;
+                }
+                else
+                {
+                    bEntity.Locked -= totalHours;
+                }
+            }
+            else
+            {
+                if (isApply)
+                {
+                    bEntity.Locked += totalHours;
+                    bEntity.Available -= totalHours;
+                }
+                else
+                {
+                    if (!isAgree)
+                    {
+                        bEntity.Locked -= totalHours;
+                        bEntity.Available += totalHours;
+                    }
+                    else
+                    {
+                        bEntity.Locked -= totalHours;
+                        bEntity.Used += totalHours;
+                    }
+                }
+            }
+
+            // 确保更新操作在事务中
+            using var transaction = new TransactionScope();
+            balanceRepository.Update(bEntity);
+            transaction.Complete(); // 提交事务
+        }
+        public void OperateQuota1(Atd_LeaveForm fEntity, IQueryable<Atd_LeaveBalance> balanceEntity, bool isAgree, bool isApply = false)
+        {
+            var bEntity = balanceEntity.FirstOrDefault(i => i.LeaveType == fEntity.LeaveType && i.Year == DateTime.Now.Year);
             if (bEntity != null)
             {
                 if (fEntity.IsCancel)
@@ -941,8 +1152,8 @@ namespace EH.Service.Implement.Attendance
                 {
                     if (isApply)
                     {
-                        bEntity.Locked += (decimal)fEntity.TotalHours;
-                        bEntity.Available -= (decimal)fEntity.TotalHours;
+                        bEntity.Locked += Convert.ToDecimal(fEntity.TotalHours);
+                        bEntity.Available -= Convert.ToDecimal(fEntity.TotalHours);
                     }
                     else
                     {
@@ -1033,6 +1244,7 @@ namespace EH.Service.Implement.Attendance
                         DateTime adjustedStartTime = dtStart > morningStart ? dtStart : morningStart;
                         adjustedStartTime = (adjustedStartTime > morningEnd && adjustedStartTime < afternoonStart) ? morningEnd : adjustedStartTime;
                         DateTime adjustedEndTime = dtEnd < afternoonEnd ? dtEnd : afternoonEnd;
+                        adjustedEndTime = (adjustedEndTime > morningEnd && adjustedEndTime < afternoonStart) ? morningEnd : adjustedEndTime;
 
                         // 计算每天的请假时长
                         double dailyLeaveDuration = (adjustedEndTime - adjustedStartTime).TotalHours;

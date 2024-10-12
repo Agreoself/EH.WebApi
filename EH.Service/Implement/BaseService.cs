@@ -27,7 +27,7 @@ namespace EH.Service.Implement
         {
 
         }
-        public BaseService(IRepositoryBase<T> repositoryBase,LogHelper logHelper)
+        public BaseService(IRepositoryBase<T> repositoryBase, LogHelper logHelper)
         {
             this.repositoryBase = repositoryBase;
             this.logHelper = logHelper;
@@ -50,7 +50,7 @@ namespace EH.Service.Implement
             return jwtHelper.GetClaimValue<TT>(token, type);
         }
 
-        public virtual T Insert(T entity,bool isSave=true)
+        public virtual T Insert(T entity, bool isSave = true)
         {
             try
             {
@@ -63,11 +63,11 @@ namespace EH.Service.Implement
             }
         }
 
-        public virtual bool Delete(T entity)
+        public virtual bool InsertRange(List<T> entitys, bool isSave = true)
         {
             try
             {
-                repositoryBase.Delete(entity);
+                repositoryBase.AddRange(entitys,isSave);
                 return true;
             }
             catch (Exception ex)
@@ -76,9 +76,22 @@ namespace EH.Service.Implement
             }
         }
 
-        public virtual bool DeleteRange(List<string> ids)
+        public virtual bool Delete(T entity,bool isSave=true)
         {
-           
+            try
+            {
+                repositoryBase.Delete(entity, isSave);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public virtual bool DeleteRange(List<string> ids,bool isSave=true)
+        {
+
             try
             {
                 List<T> list = new List<T>();
@@ -97,7 +110,7 @@ namespace EH.Service.Implement
                     }
                 }
 
-                repositoryBase.UpdateRange(list);
+                repositoryBase.UpdateRange(list, isSave);
                 return true;
             }
             catch (Exception ex)
@@ -106,7 +119,7 @@ namespace EH.Service.Implement
             }
         }
 
-        public virtual bool RealDeleteRange(List<string> ids)
+        public virtual bool RealDeleteRange(List<string> ids, bool isSave = true)
         {
 
             try
@@ -119,7 +132,7 @@ namespace EH.Service.Implement
                         list.Add(entity);
                 }
 
-                repositoryBase.DeleteRange(list);
+                repositoryBase.DeleteRange(list,isSave);
                 return true;
             }
             catch (Exception ex)
@@ -128,11 +141,11 @@ namespace EH.Service.Implement
             }
         }
 
-        public virtual bool Update(T entity)
+        public virtual bool Update(T entity,bool isSave=true)
         {
             try
             {
-                repositoryBase.Update(entity);
+                repositoryBase.Update(entity, isSave);
                 return true;
             }
             catch (Exception ex)
@@ -140,6 +153,20 @@ namespace EH.Service.Implement
                 return false;
             }
         }
+        public virtual bool UpdateRange(List<T> entitys, bool isSave)
+        {
+            try
+            {
+                repositoryBase.UpdateRange(entitys, isSave);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
 
         public virtual List<T> GetPageList(PageRequest<T> request, out int totalCount)
         {

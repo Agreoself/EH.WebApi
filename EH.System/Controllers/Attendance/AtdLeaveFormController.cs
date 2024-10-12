@@ -39,6 +39,21 @@ namespace EH.System.Controllers
             };
         }
 
+
+        [HttpGet]
+        [Authorize]
+        [Route("updateAttachment")]
+        public virtual JsonResultModel<bool> updateAttachment()
+        {
+             service.updateAttachment();
+            return new JsonResultModel<bool>
+            {
+                Code = "000",
+                Message = "success",
+                Result = true,
+            };
+        }
+
         [HttpGet]
         [Authorize]
         [Route("GetHomePageData")]
@@ -129,6 +144,7 @@ namespace EH.System.Controllers
             };
         }
 
+        [RequestSizeLimit(104857600)] // Set the max request body size to 100 MB
         public override JsonResultModel<Atd_LeaveForm> Add(Atd_LeaveForm entity, bool isSave = true)
         {
             return service.Apply(entity);
@@ -148,6 +164,7 @@ namespace EH.System.Controllers
             };
         }
 
+        [RequestSizeLimit(104857600)] // Set the max request body size to 100 MB
         [HttpPost]
         [Authorize]
         [Route("UpdateFP")]
@@ -156,6 +173,14 @@ namespace EH.System.Controllers
             return service.UpdateFP(entity);
         }
 
+        [RequestSizeLimit(104857600)] // Set the max request body size to 100 MB
+        [HttpPost]
+        [Authorize]
+        [Route("UploadAttachment")]
+        public JsonResultModel<Atd_LeaveForm> UploadAttachment(Atd_LeaveForm entity)
+        {
+            return service.UploadAttachment(entity);
+        }
 
 
 
@@ -174,6 +199,7 @@ namespace EH.System.Controllers
             };
         }
 
+        [RequestSizeLimit(104857600)] // Set the max request body size to 100 MB
         [HttpPost]
         [Authorize]
         [Route("Save")]

@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "sTLmNRMH/TCGffFPCpux+pS1+WqIMPuuCQ3ujqImty1moJZtymKV82/dqF/J1XUA/rfTeP2OteB4AeVwZoYI5w==",
+  "dgSpecHash": "ngFaQbYXcaW+ACAwtSx1t2UBTajI5S5q1yiTQecLw+cAkv7dQkzaNwYX8neT2q2F6l/x84hobDOxL1n93//Ieg==",
   "success": true,
   "projectFilePath": "C:\\Work\\VS_Project\\EH.AttendanceSystem\\EH.System.Models\\EH.System.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\paceyl\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.1.1\\microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512",
+    "C:\\Users\\paceyl\\.nuget\\packages\\microsoft.extensions.primitives\\2.1.1\\microsoft.extensions.primitives.2.1.1.nupkg.sha512",
+    "C:\\Users\\paceyl\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\paceyl\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -17,6 +17,7 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubT
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.IO.Pipelines.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\BouncyCastle.Cryptography.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Castle.Core.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\NPOI.OOXML.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\NPOI.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\NPOI.OpenXml4Net.dll
@@ -26,6 +27,7 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubT
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Microsoft.Data.SqlClient.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
@@ -43,10 +45,12 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubT
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\NLog.Database.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\NLog.Extensions.Logging.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\NLog.Web.AspNetCore.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Pipelines.Sockets.Unofficial.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Quartz.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Quartz.Extensions.DependencyInjection.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Quartz.Extensions.Hosting.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\ICSharpCode.SharpZipLib.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\StackExchange.Redis.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -58,6 +62,7 @@ C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubT
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.Drawing.Common.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.Formats.Asn1.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
+C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.Runtime.Caching.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.Security.Cryptography.Pkcs.dll
 C:\Work\VS_Project\EH.AttendanceSystem\EH.System\obj\Release\net6.0\win-x64\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll

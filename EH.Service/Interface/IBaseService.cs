@@ -17,15 +17,18 @@ namespace EH.Service.Interface
         public bool ValidateToken(string token);
         public TT GetClaimValue<TT>(string token, string type);
 
-        public T Insert(T entity,bool isSave);
-        public bool Update(T entity);
-        public bool Delete(T entity);
-        public bool DeleteRange(List<string> ids);
-        public bool RealDeleteRange(List<string> ids);
+        public T Insert(T entity,bool isSave = false);
+        public bool Update(T entity,bool isSave=false);
+        public bool Delete(T entity, bool isSave = false);
+        public bool DeleteRange(List<string> ids, bool isSave = false);
+        public bool RealDeleteRange(List<string> ids, bool isSave = false);
 
         public List<T> GetPageList(PageRequest<T> request, out int totalCount);
 
         public List<T> GetDeleteList(List<string> ids);
         public T GetEntityById(Guid id);
+
+        public bool UpdateRange(List<T> entitys, bool isSave = false);
+        public bool InsertRange(List<T> entitys, bool isSave = false);
     }
 }

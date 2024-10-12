@@ -18,6 +18,9 @@ using EH.System.Quartz;
 using NPOI.HSSF.Record.Chart;
 using EH.System.Middlewares;
 using EH.System.HostServices;
+using Microsoft.Extensions.FileProviders;
+using StackExchange.Redis;
+using System.IO;
 
 namespace EH.System
 {
@@ -26,10 +29,20 @@ namespace EH.System
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            //builder.WebHost.ConfigureKestrel(opt =>
+            //{
+            //    opt.Limits.MaxRequestBodySize= 52428800;
+            //});
 
             var Configuration = builder.Configuration;
             var services = builder.Services;
             services.AddHttpContextAccessor();
+
+            services.AddSingleton<IConnectionMultiplexer>(sp =>
+            {
+                var configuration = builder.Configuration.GetSection("Redis:ConnectionString").Value;
+                return ConnectionMultiplexer.Connect(configuration);
+            });
 
             services.AddDbContext<MyAppDbContext>(opt =>
             {
@@ -45,14 +58,17 @@ namespace EH.System
                 logger.AddNLog(Configuration.GetValue<string>("NLog:Path"));//支持nlog 
             });
 
+            services.AddSignalR();//AddSignalR
+
             services.AddCors(policy =>
             {
                 var cors = Configuration.GetSection("CorsUrl").GetChildren().Select(i => i.Value).ToArray();
                 policy.AddPolicy("CorsPolicy", opt => opt
                 .WithOrigins(cors)
-                .AllowCredentials()
+                .AllowCredentials() // 允许凭证
                 .AllowAnyHeader()
                 .AllowAnyMethod());
+
             });
 
             services.AddControllers();
@@ -67,7 +83,8 @@ namespace EH.System
 
             services.AddSingleton(typeof(JwtHelper));
             services.AddSingleton(new LogHelper());
-         
+
+
 
             #region quartz
 
@@ -136,7 +153,9 @@ namespace EH.System
             #endregion
 
             services.RegisterAllServices();
+            //后台服务
             services.AddHostedService<EmailListenerHostedService>();
+            services.AddHostedService<RedisSubscriberService>();
             #region //
             //services.AddTransient<ISysMenusRepository, SysMenusRepository>();
             //services.AddTransient<ISysMenuService, SysMenuService>();
@@ -171,7 +190,33 @@ namespace EH.System
             app.UseAuthentication();
             app.UseAuthorization();
 
+            var aucDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), "Auction");
+            if (!Directory.Exists(aucDirectoryPath))
+            {
+                Directory.CreateDirectory(aucDirectoryPath);
+            }
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(aucDirectoryPath),
+                RequestPath = "/static"
+            });
+
+            var atdDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), "HRVacation");
+            if (!Directory.Exists(atdDirectoryPath))
+            {
+                Directory.CreateDirectory(atdDirectoryPath);
+            }
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(atdDirectoryPath),
+                RequestPath = "/attendance"
+            });
+
+            //var rootPath = @"C:\Attachments\Auction";
+
             app.MapControllers();
+            app.MapHub<BidHub>("/bidHub").RequireAuthorization(); // 映射 SignalR Hub
+            app.MapHub<MyAuctionsHub>("/myAuctionsHub").RequireAuthorization(); // 映射 SignalR Hub
             app.Run();
         }
     }

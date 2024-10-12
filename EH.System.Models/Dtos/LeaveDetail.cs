@@ -19,6 +19,6 @@ namespace EH.System.Models.Dtos
         public bool needHr { get; set; }
 
         public Dictionary<int, List<string>>  holidays { get; set; }
-
+        public bool needAttachment { get; set; }
     }
 }

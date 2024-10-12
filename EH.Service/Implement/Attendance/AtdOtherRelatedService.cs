@@ -37,6 +37,7 @@ namespace EH.Service.Implement.Attendance
 
         public override List<Atd_OtherRelated> GetPageList(PageRequest<Atd_OtherRelated> request, out int totalCount)
         {
+            
             var whereCondision = request.GetWhere().Compile();
             var orderCondision = request.GetOrder().Compile();
 
@@ -83,7 +84,7 @@ namespace EH.Service.Implement.Attendance
             return base.Insert(entity, isSave);
         }
 
-        public override bool Update(Atd_OtherRelated entity)
+        public override bool Update(Atd_OtherRelated entity, bool isSave = false)
         {
             if (entity.CurrentState == 2)
             {

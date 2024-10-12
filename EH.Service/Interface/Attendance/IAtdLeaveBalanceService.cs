@@ -22,5 +22,7 @@ namespace EH.Service.Interface.Attendance
         List<Atd_AnnualInfos> GetInfo(Atd_AnnualInfoReq data);
 
         List<Atd_BalanceStatics> Statistics(PageRequest request,out int totalCount);
+
+        public string ClearCarryoverAnnual(bool isClear=false);
     }
 }

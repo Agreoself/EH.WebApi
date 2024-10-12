@@ -25,5 +25,6 @@ namespace EH.System.Models.Entities
         public string? Description { get; set; }
         public decimal? NeedVpHour { get; set; }
         public bool NeedHRApprove { get; set; }
+        public bool NeedAttachment { get; set; }
     }
 }

@@ -61,6 +61,7 @@ namespace EH.Service.Implement.Attendance
                     IsHoliday = false,
                     needHr=true,
                     MinUnit = "All",
+                    needAttachment=false,
                 };
             }
             else
@@ -74,6 +75,7 @@ namespace EH.Service.Implement.Attendance
                     MinUnit = settingEntity.MinUnit,
                     needHr = settingEntity.NeedHRApprove,
                     holidays = GetHoliday(),
+                    needAttachment= settingEntity.NeedAttachment,
                 };
             }
         }
@@ -91,6 +93,7 @@ namespace EH.Service.Implement.Attendance
                     IsHoliday = false,
                     needHr =true, 
                     MinUnit = "All",
+                    needAttachment = false,
                 };
             }
             else
@@ -104,6 +107,7 @@ namespace EH.Service.Implement.Attendance
                     MinUnit = settingEntity.MinUnit,
                     needHr = settingEntity.NeedHRApprove,
                     holidays = GetHoliday(),
+                    needAttachment = settingEntity.NeedAttachment,
                 };
             }
         }

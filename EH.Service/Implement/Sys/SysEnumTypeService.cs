@@ -31,7 +31,7 @@ namespace EH.Service.Implement.Sys
             this.itemRepository = itemRepository;
         }
 
-        public override bool DeleteRange(List<string> ids)
+        public override bool DeleteRange(List<string> ids, bool isSave = false)
         {
             try
             {

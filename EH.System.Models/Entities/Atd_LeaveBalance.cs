@@ -19,8 +19,13 @@ namespace EH.System.Models.Entities
         public decimal Available { get; set; }
         public decimal Used { get; set; }
         public decimal Locked { get; set; }
-        public decimal? Overdue { get; set; }
+        public decimal AVCarryoverTotal { get; set; }
+        public decimal AVCarryoverAvailable { get; set; }
+        public decimal AVCarryoverUsed { get; set; }
+        public decimal AVCarryoverLocked { get; set; }
+        public decimal AVCarryoverCleared { get; set; }
+        public bool IsClear { get; set; }
         public string? Remark { get; set; }
-        
+   
     }
 }

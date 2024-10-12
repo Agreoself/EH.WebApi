@@ -87,6 +87,20 @@ namespace EH.System.Controllers.Attendance
                 Other = totalCount
             };
         }
+
+        [HttpGet]
+        [Authorize]
+        [Route("ClearCarryoverAnnual")]
+        public virtual JsonResultModel<string> ClearCarryoverAnnual(bool isClear)
+        {
+            var res = service.ClearCarryoverAnnual(isClear);
+            return new JsonResultModel<string>
+            {
+                Result = res,
+                Code = res!="false" ? "000" : "100",
+                Message = res != "false" ? "success" : "false",
+            };
+        }
     }
 
 }

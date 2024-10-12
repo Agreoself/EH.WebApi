@@ -245,7 +245,7 @@ namespace EH.Service.Implement.Sys
             }
         }
 
-        public override bool Update(Sys_Users entity)
+        public override bool Update(Sys_Users entity, bool isSave = false)
         {
             var user = iSysUsersRepository.FirstOrDefault(i => i.ID == entity.ID);
             var oldReport = user.Report;

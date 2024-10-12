@@ -11,11 +11,15 @@ namespace EH.System.Commons
     {
         public static string ToJson(this object obj)
         {
+            if (obj == null)
+                return "";
             return JsonConvert.SerializeObject(obj, Formatting.Indented);
         }
 
         public static T ToObject<T>(this object obj)
         {
+            if (obj == null)
+                return default(T);
             return JsonConvert.DeserializeObject<T>(obj.ToJson());
         }
     }

@@ -63,9 +63,16 @@ namespace EH.System.Middlewares
                     break;
             }
             _logger.LogError(exception.ToString());
-            var result = JsonConvert.SerializeObject(errorResponse);
-            response.StatusCode = 200;
-            await context.Response.WriteAsync(errorResponse.ToJson());
+            var result = @"{
+                ""code"": ""100"",
+    ""message"": ""exception"",
+    ""result"": null,
+    ""other"": 0,
+    ""token"": null
+}";
+            //var result = JsonConvert.SerializeObject(errorResponse);
+            response.StatusCode = 500;
+            await context.Response.WriteAsync(result);
         }
     }
 }
